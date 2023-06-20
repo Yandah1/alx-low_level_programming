@@ -1,7 +1,6 @@
 #include "main.h"
 
 /**
- * main - main block
  * print_alphabet -  Prints the alphabet et in lowercase.
  * Return: Always 0
  */
