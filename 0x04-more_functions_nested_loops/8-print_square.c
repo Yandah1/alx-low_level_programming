@@ -8,13 +8,13 @@
 
 void print_square(int size)
 {
-	int c, i;
+	int c, y;
 
 	c = 0;
 	if (size < 1)
 		_putchar('\n');
 
-	while (i < size)
+	while (y < size)
 	{
 		c = 0;
 		while (c < size)
@@ -23,6 +23,6 @@ void print_square(int size)
 			c++;
 		}
 		_putchar('\n');
-		i++;
+		y++;
 	}
 }
