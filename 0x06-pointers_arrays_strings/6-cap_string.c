@@ -10,7 +10,7 @@
 char *cap_string(char *s)
 {
 	int i, j;
-	char sep[] = "\t\n,;.!\"(){}";
+	char sep[] = " \t\n,;.!?\"(){}";
 
 	i = 1;
 	if (s[0] > 96 && s[0] < 123)
@@ -18,7 +18,7 @@ char *cap_string(char *s)
 	while (s[i] != '\0')
 	{
 		for (j = 0; sep[j] != '\0'; j++)
-			if (s[i - 1] == sep[j] && (s[i] > 96 &&  s[i] < 123))
+			if (s[i - 1] == sep[j] && (s[i] > 96 && s[i] < 123))
 				s[i] -= 32;
 		i++;
 	}
