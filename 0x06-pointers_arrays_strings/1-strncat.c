@@ -3,27 +3,28 @@
 
 /**
  * _strncat - function that concatenates two string.
- * @des:
- * @srs:
- * return: 
+ * @dest: first string
+ * @src: second stringi
+ * @n: input
+ * Return: A pointer to the resulting string dest
  */
-char *_strcat(char *desr, char *scr)
+char *_strncat(char *dest, char *src, int n)
 {
-	int i;
-	int j;
+	int c;
+	int d;
 
-	i = 0;
-	while (dest[i] != '\0')
+	c = 0;
+	while (dest[c] != '\0')
 	{
-		i++;
+		c++;
 	}
-	j = 0;
-	while (srs[j] != '\0')
+	d = 0;
+	while (d < n && src[d] != '\0')
 	{
-		dest[i] = src[j];
-		i+=;
-		j++;
+		dest[c] = src[d];
+		c++;
+		d++;
 	}
-	dest[i] = '\0';
+	dest[c] = '\0';
 		return (dest);
 }
