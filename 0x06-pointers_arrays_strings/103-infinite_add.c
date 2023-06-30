@@ -16,13 +16,13 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 	int max_len = len1 > len2 ? len1 : len2;
 	int carry = 0;
 	int i, j;
-	int result_len;
 
 	if (max_len + 1 > size_r)
 	{
 		return (0);
 	}
-	for (i = len1 - 1, j = len2 - 1; i >= 0 || j >= 0 || carry > 0; i--, j--)
+	memset(r, '0', max_len + 1);
+	for (i = len1 - 1, j = len2 - 1; max_len = max_len - 1; i >= 0 || j >= 0 || carry > 0; i--, j--, max_len--)
 	{
 		int digit1 = i >= 0 ? n1[i] - '0' : 0;
 
@@ -32,9 +32,7 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 		carry = sum / 10;
 		r[max_len--] = sum % 10 + '0';
 	}
-	result_len = len1 > len2 ? len1 : len2;
-	memmove(r, &r[max_len + 1], result_len);
+	r[len1 > len2 ? len1 : len2] = '\0';
 
-	r[result_len] = '\0';
 	return (r);
 }
