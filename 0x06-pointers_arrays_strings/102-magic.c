@@ -6,7 +6,7 @@
  * - you are not allowed to modify p
  * - only one statement
  * - you are not allowed to code
- * -anything else than this line of code
+ * - anything else than this line of code
  * Return: 0
  */
 int main(void)
@@ -19,6 +19,5 @@ int main(void)
 
 	/*  add this line of code */
 	printf("a[2] = %d\n", p[0]);
-
 	return (0);
 }
