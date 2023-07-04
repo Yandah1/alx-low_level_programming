@@ -16,8 +16,8 @@ void print_diagsums(int *a, int size)
 
 	for (c = 0; c < size; c++)
 	{
-		sum1 += *(a + c * size + c);
-		sum2 += *(a + c * size + (size - c - 1));
+		sum1 = sum1 + *(a + c * size + c);
+		sum2 = sum2 + *(a + c * size + (size - c - 1));
 	}
 	printf("%d\n", sum1);
 	printf("%d\n", sum2);
