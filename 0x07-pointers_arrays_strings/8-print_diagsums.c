@@ -10,9 +10,9 @@
  */
 void print_diagsums(int *a, int size)
 {
+	int c;
 	int sum1 = 0;
 	int sum2 = 0;
-	int c;
 
 	for (c = 0; c < size; c++)
 	{
@@ -22,6 +22,5 @@ void print_diagsums(int *a, int size)
 	{
 		sum2 = sum2 + a[c * size + (size - c - 1)];
 	}
-	printf("%d\n", sum1);
-	printf("%d\n", sum2);
+	printf("%d, %d\n", sum1, sum2);
 }
