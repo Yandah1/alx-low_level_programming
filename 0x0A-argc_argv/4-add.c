@@ -12,12 +12,13 @@
 int main(int argc, char *argv[])
 {
 	int sum = 0;
-	int a, c;
+	int a;
 
 	for (a = 1; a < argc; a++)
 	{
+		int c = 0;
 
-		while (c = 0, argv[a][c])
+		while (argv[a][c])
 		{
 		if (!isdigit(argv[a][c]))
 		{
