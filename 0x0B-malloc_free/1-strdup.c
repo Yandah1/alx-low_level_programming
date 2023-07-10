@@ -3,30 +3,30 @@
 #include <stdlib.h>
 
 /**
- *_strdup - function that returns a pointer to a newly allocated space in memory,
+ *_strdup - function returns a pointer to a newly allocated space in memory,
  * @str: charactor
  *
  * Return: NULL if str = NULL
  */
 char *_strdup(char *str)
 {
-	cha ;
-	int i, len;
+	char *strr;
+	int i, j;
 
 	if (str == NULL)
 		return (NULL);
-	len = 0;
-	while (str[len] != '\0')
-		len++;
 
-	new_str = malloc(sizeof(char) * (len + 1));
+	j = 0;
+	while (str[j] != '\0')
+		j++;
 
-	if (new_str == NULL)
+	strr = malloc(sizeof(char) * (j + 1));
+
+	if (strr == NULL)
 		return (NULL);
 
-	for (i = 0; i < len; i++)
-		new_str[i] = str[i];
-		new_str[len] = '\0';
+	for (i = 0; i < j; i++)
+		strr[i] = str[i];
 
-	return (new_str);
+	return (strr);
 }
