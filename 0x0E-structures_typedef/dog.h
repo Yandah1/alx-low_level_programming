@@ -14,20 +14,6 @@ struct dog
 	float age;
 	char *owner;
 };
-/**
- * int_dog - Initializes a struct dog with the provided values.
- * @d: Pointer to the struct dog to initialize.
- * @name: Firest member
- * @age: Second member
- * @owner: Third member.
- */
-
-void int_dog(struct dog *d, char *name, float age, char *owner)
-{
-	d->name = name;
-	d->age = age;
-	d->owner = owner;
-}
 
 /**
  * dog_t - typedef for struct dog
