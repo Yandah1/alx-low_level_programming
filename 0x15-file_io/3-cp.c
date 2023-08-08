@@ -44,6 +44,7 @@ int main(int argc, char *argv[])
 	file_to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC | O_APPEND, 0664);
 	error_file(file_from, file_to, argv);
 
+	r = 1024;
 	do {
 		r = read(file_from, buffer, 1024);
 		if (r == -1)
@@ -51,8 +52,7 @@ int main(int argc, char *argv[])
 		w = write(file_to, buffer, r);
 		if (w == -1)
 			error_file(0, -1, argv);
-	}
-	while (r == -1);
+	} while (r == -1);
 
 	err = close(file_from);
 	if (err == -1)
