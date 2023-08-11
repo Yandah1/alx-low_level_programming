@@ -1,5 +1,8 @@
-#include "main.h"
+#include <fcntl.h>
+#include <unistd.h>
 #include <stdio.h>
+#include <stdlib.h>
+#include "main.h"
 
 /**
  * error_file - print error message and exit
@@ -30,7 +33,7 @@ void error_file(int file_from, int file_to, char *argv[])
  */
 int main(int argc, char *argv[])
 {
-	int file_from, file_to, err;
+	int file_from, file_to;
 	ssize_t r, w;
 	char buffer[1024];
 
@@ -44,7 +47,6 @@ int main(int argc, char *argv[])
 	file_to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC | O_APPEND, 0664);
 	error_file(file_from, file_to, argv);
 
-	r = 1024;
 	do {
 		r = read(file_from, buffer, 1024);
 		if (r == -1)
@@ -52,20 +54,13 @@ int main(int argc, char *argv[])
 		w = write(file_to, buffer, r);
 		if (w == -1)
 			error_file(0, -1, argv);
-	} while (r == -1);
+	} while (r > 0);
 
-	err = close(file_from);
-	if (err == -1)
+	if (close(file_from) == -1 || close(file_to) == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", file_from);
+		dprintf(STDERR_FILENO, "Error: Can't close files\n");
 		exit(100);
 	}
 
-	err = close(file_to);
-	if (err == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", file_from);
-		exit(100);
-	}
 	return (0);
 }
